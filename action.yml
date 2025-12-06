@@ -29,6 +29,10 @@ inputs:
     description: Disable the ordered update function.
     required: false
     default: 'false'
+  notification:
+    description: Enable notification after deployment.
+    required: false
+    default: 'false'
 outputs:
   output:
     description: The output of the dnscontrol command that was executed.

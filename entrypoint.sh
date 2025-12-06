@@ -8,6 +8,7 @@ CREDS_ABS_PATH="$(readlink -f "${INPUT_CREDS_FILE}")"
 ALLOW_FETCH="${ALLOW_FETCH:-false}"
 DISABLE_ORDERED_UPDATE="${DISABLE_ORDERED_UPDATE:-false}"
 ENABLE_COLORS="${ENABLE_COLORS:-false}"
+notification="${notification:-false}"
 
 WORKING_DIR="$(dirname "${CONFIG_ABS_PATH}")"
 cd "$WORKING_DIR" || exit
@@ -16,6 +17,8 @@ ARGS=()
 if [ "$ENABLE_COLORS" = false ]; then
   ARGS+=(--no-colors)
 fi
+
+if 
 
 if [ "$DISABLE_ORDERED_UPDATE" = true ]; then
   ARGS+=(--disableordering)
@@ -32,7 +35,7 @@ ARGS+=(
 
 # 'check' sub-command doesn't require credentials
 if [ "$1" != "check" ]; then
-  ARGS+=(--creds "$CREDS_ABS_PATH")
+  ARGS+=(--creds "$CREDS_ABS_PATH" --notify=$notification)
 fi
 
 #   if [ "$ENABLE_CONCURRENT" = false ]; then

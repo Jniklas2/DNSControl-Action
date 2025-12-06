@@ -18,7 +18,9 @@ if [ "$ENABLE_COLORS" = false ]; then
   ARGS+=(--no-colors)
 fi
 
-if 
+if [ "$notification" = true ]; then
+  ARGS+=(--notify)
+fi
 
 if [ "$DISABLE_ORDERED_UPDATE" = true ]; then
   ARGS+=(--disableordering)
@@ -35,7 +37,7 @@ ARGS+=(
 
 # 'check' sub-command doesn't require credentials
 if [ "$1" != "check" ]; then
-  ARGS+=(--creds "$CREDS_ABS_PATH" --notify=$notification)
+  ARGS+=(--creds "$CREDS_ABS_PATH")
 fi
 
 #   if [ "$ENABLE_CONCURRENT" = false ]; then

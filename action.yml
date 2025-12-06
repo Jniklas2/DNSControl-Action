@@ -39,4 +39,4 @@ outputs:
 runs:
   using: docker
   # image: 'Dockerfile'
-  image: 'docker://ghcr.io/jniklas2/dnscontrol-action:v4.27.1'
+  image: 'docker://ghcr.io/jniklas2/dnscontrol-action:v4.28.1'
